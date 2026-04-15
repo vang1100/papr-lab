@@ -38,3 +38,5 @@ PUBLIC VIEWER
 - Blog View
     - Can READ title, text, picture, date
     - Can click "heart" w/o needing to log in . Can click again to unheart
+
+    
