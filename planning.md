@@ -39,4 +39,19 @@ PUBLIC VIEWER
     - Can READ title, text, picture, date
     - Can click "heart" w/o needing to log in . Can click again to unheart
 
+
+
+PAGES
+ ADMIN
+ - Dashboard 
+ - About Me
+ - Blog
+
+
+ PUBLIC
+ - Home
+ - Gallery
+ - Inquiries
+ 
+
     
