@@ -12,6 +12,12 @@ router.post('/login', async (req, res) => {
     );
 
     if (result.rows.length > 0) {
+
+      console.log(result.rows[0]);
+      console.log(req.body);
+      console.log(result.rows);
+
+      
       req.session.regenerate((err) => {
         if (err) return res.sendStatus(500);
         req.session.user = result.rows[0];
