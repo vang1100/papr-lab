@@ -1,3 +1,5 @@
+import LoginForm from "../LoginForm/LoginForm";
+
 function LogIn(){
    
 
@@ -5,16 +7,10 @@ function LogIn(){
 
         <div>
 
-            <label>
-                Hello, Admin!
-                <br/>
-                Username:
-                 <input name="username"/>
-                 <br/>
-                 Password:
-                 <input name="password"/>
-            </label>
-            <button>submit</button>
+        <h1>Welcome, Admin!</h1>
+
+        <LoginForm/>
+          
         </div>
     )
 }

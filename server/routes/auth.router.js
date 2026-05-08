@@ -33,5 +33,22 @@ router.post('/logout', (req, res) => {
   });
 });
 
+router.post('/register', async (req, res) => {
+  try {
+    const { username, password, is_admin } = req.body;
+
+    await pool.query(
+      'INSERT INTO "user" (username, password, is_admin) VALUES ($1, $2, $3)',
+      [username, password, is_admin || false]
+    );
+
+    res.sendStatus(201);
+  } catch (err) {
+    console.error('Create user error:', err);
+    res.sendStatus(500);
+  }
+});
+
+
 
 module.exports = router;
