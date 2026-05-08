@@ -1,14 +1,5 @@
 function requireAdmin(req, res, next) {
-  
-  const requireAdmin = (req, res, next) => {
-  if (req.user && req.user.isAdmin) {
-    next();
-  } else {
-    res.status(403).json({ error: 'Admin access required' });
-  }
-};
-
-  if (req.session.user) {
+  if (req.session.user && req.session.user.is_admin) {
     next();
   } else {
     res.sendStatus(403);

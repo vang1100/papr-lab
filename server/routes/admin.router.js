@@ -3,6 +3,7 @@ const router = express.Router();
 const requireAdmin = require('../middleware/requireAdmin');
 const pool = require('../pool');
 
+
 router.use(requireAdmin);
 
 router.get('/test', (req, res) => {
