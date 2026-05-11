@@ -1,6 +1,11 @@
+import React from 'react';
 import LoginForm from "../LoginForm/LoginForm";
 
+
 function LogIn(){
+
+    
+
    
 
     return (
@@ -10,6 +15,8 @@ function LogIn(){
         <h1>Welcome, Admin!</h1>
 
         <LoginForm/>
+
+    
           
         </div>
     )

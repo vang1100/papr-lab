@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+
 
 // useEffect(() => {
 
@@ -60,12 +63,16 @@ const login = (event) => {
                     
                     />
 
-                
-
                 </label>
-
-                <button 
-                type="submit">Login</button>
+        
+       <Link to="/dashboard">
+       <button 
+            type="submit"
+             onClick={() => {
+            
+          }}
+          >Login</button>
+       </Link> 
             </form>
         </div>
      

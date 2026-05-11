@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import viteLogo from '/vite.svg'
 import './App.css'
 import LogIn from './LogIn/LogIn'
-//import LoginForm from './LoginForm/LoginForm'
-import { Router, Route } from 'react-router-dom';
+import LoginForm from './LoginForm/LoginForm'
+import Dashboard from './Dashboard/Dashboard';
+
 
 function App() {
 
@@ -13,8 +15,18 @@ function App() {
 
    
       <div>
+
+        <Routes>
+          <Route path="/login" 
+          element={<LogIn />} />
+          <Route
+          path="/dashboard"
+          element={<Dashboard/>}/>
+        </Routes>
       
-<LogIn/>
+
+
+
       
       
       </div>
