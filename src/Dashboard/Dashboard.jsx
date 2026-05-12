@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    
+    const navigate = useNavigate();
+
 
     const logout = () => {
    
@@ -13,9 +13,10 @@ function Dashboard() {
 
     
 
-    axios.post(`api/auth/logout`)
+    axios.post(`/api/auth/logout`)
         .then((response) => {
             console.log(response);
+            navigate('/login')
         })
         .catch((error) => {
             console.log(error)
@@ -26,8 +27,9 @@ function Dashboard() {
     return (
         <div>
             Admin's Dashboard
+            <button onClick={logout}>Logout</button>
 
-             <button onClick={logout}>Logout</button>
+            
         </div>
     )
 }

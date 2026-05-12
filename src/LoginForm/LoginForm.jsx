@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm({setIsLoggedIn}) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    
 
 
 
@@ -19,23 +21,24 @@ const login = (event) => {
 
     
 
-    axios.post(`api/auth/login`, {username, password})
-        .then((response) => {
-            console.log(response);
-
-            
-
-            setUsername();
-            setPassword();
-        })
-        .catch((error) => {
-            console.log(error)
+    axios.post('/api/auth/login', {username, password})
+          .then((response) => {
+      console.log(response);
+      setUsername('');
+      setPassword('');
+      setIsLoggedIn(true); // Update parent state
+      navigate('/dashboard');
+    })
+    .catch((error) => {
+      console.log(error);
         })
 
 }
     return (
         
         <div>
+
+            Admin's Login Page
             <form onSubmit={login}>
                 <label >
 
@@ -65,14 +68,12 @@ const login = (event) => {
 
                 </label>
         
-       <Link to="/dashboard">
+       
        <button 
             type="submit"
-             onClick={() => {
             
-          }}
           >Login</button>
-       </Link> 
+       
             </form>
         </div>
      
