@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Route, Routes } from 'react-router-dom'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,7 +11,22 @@ import Dashboard from './Dashboard/Dashboard';
 
 function App() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+    useEffect(() => {
+    axios.get('/api/auth/me')
+      .then((response) => {
+        setIsLoggedIn(response.data.isLoggedIn);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoggedIn(false);
+      });
+  }, []);
+
+  if (isLoggedIn === null) {
+    return <div>Loading...</div>;
+  }
 
 
   return (

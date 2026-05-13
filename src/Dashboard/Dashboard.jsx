@@ -6,23 +6,30 @@ function Dashboard() {
 
     const navigate = useNavigate();
 
+    
+ const logout = () => {
+    axios.post('/api/auth/logout')
+      .then(() => navigate('/login'))
+      .catch(console.log);
+  };
 
-    const logout = () => {
+
+//     const logout = () => {
    
-    //console.log('when i click this button, admin will log in');
+//     //console.log('when i click this button, admin will log in');
 
     
 
-    axios.post(`/api/auth/logout`)
-        .then((response) => {
-            console.log(response);
-            navigate('/login')
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+//     axios.post(`/api/auth/logout`)
+//         .then((response) => {
+//             console.log(response);
+//             navigate('/login')
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
 
-}
+// }
 
     return (
         <div>
