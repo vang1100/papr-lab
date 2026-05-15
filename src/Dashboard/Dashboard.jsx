@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Blog from '../Blog/Blog';
+
 
 function Dashboard() {
 
     const navigate = useNavigate();
 
-    
+
  const logout = () => {
     axios.post('/api/auth/logout')
       .then(() => navigate('/login'))
@@ -35,6 +37,9 @@ function Dashboard() {
         <div>
             Admin's Dashboard
             <button onClick={logout}>Logout</button>
+
+            <button>Blog</button>
+            <button>Gallery</button>
 
             
         </div>

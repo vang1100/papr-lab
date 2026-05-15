@@ -13,6 +13,20 @@ router.get('/test', (req, res) => {
 router.get('/', async (req, res) => {
 //   const result = await pool.query('SELECT * FROM posts ORDER BY id');
 //   res.send(result.rows);
+
+const user_id = req.user.id;
+
+const queryText = ` SELECT * FROM "blog";`;
+
+pool.query(queryText, [user_id])
+.then((result) => {
+  res.send(result.rows);
+})
+.catch((error) => {
+  console.log('error in query Text', error);
+  res.sendStatus(500);
+})
+
 });
 
 router.post('/', async (req, res) => {
