@@ -38,8 +38,8 @@ function Dashboard() {
             Admin's Dashboard
             <button onClick={logout}>Logout</button>
 
-            <button>Blog</button>
-            <button>Gallery</button>
+            <button onClick={()=> navigate('/admin/blog')}>Blog</button>
+            <button onClick={()=> navigate('/admin/gallery')}>Gallery</button>
 
             
         </div>

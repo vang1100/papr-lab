@@ -7,7 +7,8 @@ import ProtectedRoute from './ProtectedRoute'
 import LogIn from './LogIn/LogIn'
 import LoginForm from './LoginForm/LoginForm'
 import Dashboard from './Dashboard/Dashboard';
-
+import Blog from './Blog/Blog'
+import Gallery from './Gallery/Gallery'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           path="/login" 
           element={<LoginForm setIsLoggedIn={setIsLoggedIn} />} 
         />
+
         <Route
           path="/dashboard"
           element={
@@ -47,6 +49,26 @@ function App() {
               <Dashboard setIsLoggedIn={setIsLoggedIn} />
             </ProtectedRoute>
           }
+        />
+
+        <Route
+        path="admin/blog"
+        element={
+          <ProtectedRoute isAuthenticated={isLoggedIn}>
+            <Blog setIsLoggedIn={setIsLoggedIn} />
+          </ProtectedRoute>
+        }
+        />
+
+        <Route
+
+        path="admin/gallery"
+        element={
+          <ProtectedRoute isAuthenticated={isLoggedIn}>
+            <Gallery setIsLoggedIn={setIsLoggedIn}/>
+          </ProtectedRoute>
+        }
+
         />
       </Routes>
       
