@@ -25,28 +25,28 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-//   const { title, body } = req.body;
-//   await pool.query(
-//     'INSERT INTO posts (title, body) VALUES ($1, $2)',
-//     [title, body]
-//   );
-//   res.sendStatus(201);
+  const { title, text, photo } = req.body;
+  await pool.query(
+    'INSERT INTO "blog" (title, text, photo) VALUES ($1, $2, $3)',
+    [title, text, photo]
+  );
+  res.sendStatus(201);
 });
 
 router.put('/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const { title, body } = req.body;
-//   await pool.query(
-//     'UPDATE posts SET title = $1, body = $2 WHERE id = $3',
-//     [title, body, id]
-//   );
-//   res.sendStatus(200);
+  const { id } = req.params;
+  const { title, text, photo, is_liked } = req.body;
+  await pool.query(
+    'UPDATE blog SET title = $1, text = $2, photo = $3, is_liked = $4  WHERE id = $5',
+    [title, text, photo, is_liked, id]
+  );
+  res.sendStatus(200);
 });
 
 router.delete('/:id', async (req, res) => {
-//   const { id } = req.params;
-//   await pool.query('DELETE FROM posts WHERE id = $1', [id]);
-//   res.sendStatus(200);
+  const { id } = req.params;
+  await pool.query('DELETE FROM "blog" WHERE id = $1', [id]);
+  res.sendStatus(200);
 });
 
 module.exports = router;

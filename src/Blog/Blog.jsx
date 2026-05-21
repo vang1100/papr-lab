@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function Blog() {
 
     const navigate = useNavigate();
-    const [blog, setBlog] = useState('');
+    const [blog, setBlog] = useState([]);
 
     useEffect(() =>{
 
@@ -31,24 +31,31 @@ function Blog() {
     
 
     return (
-        <>This is wehere the Blog exists
+        <>
+        
+        <h3> List of blog items</h3>
         <br/>
-
+        
+       
         <ul>
-            <li>
-             List of blogs
-        <li>buttons to click edit and then directs to editing the blog
-            </li>
-            </li>
+            {blog.map (
+                function(blog) {
+                    return (
+                        <li key={blog.id}>
+
+                            {blog.title}
+                            <br/>
+                            {blog.text}
+
+                        </li>
+                    )
+                }
+            )}
+            
         </ul>
         
 
-<ul>
-    05/19 planning:
 
-        1. display list of blog
-        2. create edit form for blog
-</ul>
         
         
         
