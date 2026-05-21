@@ -46,6 +46,8 @@ function Blog() {
                             {blog.title}
                             <br/>
                             {blog.text}
+                            <button>Delete Blog</button>
+                            <button>Update Blog</button>
 
                         </li>
                     )
