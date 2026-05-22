@@ -28,6 +28,14 @@ function Blog() {
 
     }
 
+    const deleteBlog = (id) => {
+
+        axios.delete(`/api/admin/${id}`)
+        .then((response)) => {
+            
+        }
+    }
+
     
 
     return (
