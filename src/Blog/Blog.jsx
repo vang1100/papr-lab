@@ -7,15 +7,17 @@ function Blog() {
     const navigate = useNavigate();
     const [blog, setBlog] = useState([]);
 
+    const [addBlog, setAddBlog] = useState('');
+
     useEffect(() =>{
 
         fetchBlog();
         
     }, []);
 
-     const fetchBlog = () => {
+    // GET
 
-        //axios
+     const fetchBlog = () => {
 
         axios.get(`/api/admin`, )
         .then((response) => {
@@ -28,19 +30,52 @@ function Blog() {
 
     }
 
+    // POST
+    
+    const postBlog = () => {
+
+    }
+    // PUT
+
+        const updateBlog = (id) => {
+
+        }
+    // DELETE
+
     const deleteBlog = (id) => {
 
         axios.delete(`/api/admin/${id}`)
-        .then((response)) => {
-            
-        }
+        .then((response) => {
+            console.log(response);
+            fetchBlog();
+        })
+        .catch((error) =>
+            console.log(error)
+        )
     }
+
+
 
     
 
     return (
         <>
+
+        <h4>FORM TO SUBMIT</h4>
         
+        <form onSubmit={addBlog}>
+
+            <input>
+            </input>
+
+            <button
+            type="submit">
+                Add Blog
+            </button>
+
+        </form>
+
+
         <h3> List of blog items</h3>
         <br/>
         
@@ -54,7 +89,7 @@ function Blog() {
                             {blog.title}
                             <br/>
                             {blog.text}
-                            <button>Delete Blog</button>
+                            <button onClick={()=>deleteBlog(blog.id)}>Delete Blog</button>
                             <button>Update Blog</button>
 
                         </li>
