@@ -32,7 +32,9 @@ function Blog() {
 
     // POST
     
-    const postBlog = () => {
+    const postBlog = (event) => {
+        event.preventDefault();
+        
 
     }
     // PUT
