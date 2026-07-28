@@ -54,4 +54,7 @@ PAGES
  - Inquiries
  
 
-    
+
+NOTES:
+- npm start server
+- npm run dev
